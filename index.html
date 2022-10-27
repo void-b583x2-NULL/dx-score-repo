@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
+
+    <!--
+        A template from below:
+    BeaqleJS - HTML5 and JavaScript framework for listening tests, <https://github.com/HSU-ANT/beaqlejs>
+
+    This file and all corresponding parts of BeaqleJS are published under the GPLv3 license, <http://www.gnu.org/licenses/>    
+    -->
+
+
+    <title>笛箫协会乐谱库</title>
+
+    <!-- load the test config file -->
+    <!-- <script src="config/example_config_mushra.js" type="text/javascript"></script> -->
+    <!-- -->
+
+
+
+    <link type="text/css" href="css/smoothness/jquery-ui-1.8.18.custom.css" rel="Stylesheet" />
+    <link type="text/css" href="css/styles.css" rel="Stylesheet" />
+
+    <!-- <script src="js/jquery.js" type="text/javascript"></script>
+    <script src="js/jquery-ui.custom.min.js" type="text/javascript" ></script>
+    <script src="js/beaqle.js" type="text/javascript"></script> -->
+
+
+</head>
+
+<body>
+
+
+    <div style="text-align:center">
+        <br />
+        <br />
+        Account<input type="text" name="AccountInput" id="acc" size=20 maxlength=15 value="">
+        <br />
+        <br />
+        Password<input type="Password" name="PasswordInput" id="pwd" size=20 maxlength=15 value="">
+        <br />
+        <br />
+        <button id="BtnStart" onclick="CheckInput()">Go！</button>
+    </div>
+    <br />
+    <br />
+
+    <!-- this button starts the first test -->
+
+
+    <script type="text/javascript">
+        function CheckInput() {
+
+            var RootAccount = "sjtudxer";
+            var RootPwd = "dy/dx=f\'(x)";
+            var acc = document.getElementById("acc").value;
+            var pwd = document.getElementById("pwd").value;
+            if (acc === RootAccount && pwd === RootPwd) {
+                var storage = window.sessionStorage;
+                storage.setItem("HasAccess", "OK");
+                window.location.href = "query.html";
+            } else {
+                alert("Authentication Fail");
+            }
+        }
+    </script>
+
+</body>
+
+</html>
