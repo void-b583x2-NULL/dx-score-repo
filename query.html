@@ -7,6 +7,9 @@
     <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
     <script type="text/javascript" src="js/jszip.js"></script>
     <script type="text/javascript" src="js/FileSaver.js"></script>
+    <script src="js/jquery.js" type="text/javascript"></script>
+    <script src="js/jquery-ui.custom.min.js" type="text/javascript" ></script>
+    <script src="js/pagequery.js" type="text/javascript" ></script>
     <!--
         A template from below:
     BeaqleJS - HTML5 and JavaScript framework for listening tests, <https://github.com/HSU-ANT/beaqlejs>
@@ -33,18 +36,18 @@
 
 </head>
 
-<body>
+<body onload="Displayref1()">
 
 
     <div style="text-align:center">
         <br />
         <br />
         请选择需要查看的乐曲：
-        <input type="radio" name="pieces" value="印象国乐大曲" checked="checked">印象国乐大曲
-        <input type="radio" name="pieces" value="瑶族舞曲">瑶族舞曲
-        <input type="radio" name="pieces" value="穿越时空的思念">穿越时空的思念
-        <input type="radio" name="pieces" value="花好月圆">花好月圆
-        <input type="radio" name="pieces" value="台湾追想曲">台湾追想曲
+        <input type="radio" name="pieces" value="印象国乐大曲" checked="checked" onclick="Displayref1()">印象国乐大曲
+        <input type="radio" name="pieces" value="瑶族舞曲" onclick="Displayref2()">瑶族舞曲
+        <input type="radio" name="pieces" value="穿越时空的思念" onclick="$('#Wrapper').hide()">穿越时空的思念
+        <input type="radio" name="pieces" value="花好月圆" onclick="$('#Wrapper').hide()">花好月圆
+        <input type="radio" name="pieces" value="台湾追想曲" onclick="$('#Wrapper').hide()">台湾追想曲
         <br />
         <br />
         请选择需要查看的声部：
@@ -60,48 +63,54 @@
     <br />
     <br />
 
+    <div id="RefLinks" style="text-align: center">
+        参考音频：
+        <br />
+        <br />
+        <p>
+            <a href="https://www.bilibili.com/video/BV1bs411q7zU/">印象国乐大曲-新竹乐团</a>
+            <a href="https://www.bilibili.com/video/BV1os411Q7ph/">瑶族舞曲-新竹乐团</a>
+            <a href="https://www.bilibili.com/video/BV1mz411v7oZ/">台湾追想曲-台北市立乐团</a>
+            <a href="https://www.bilibili.com/video/BV18W411E7oi/">花好月圆-香港中乐团等</a>
+            <br />
+            <br />
+            穿越时空的思念demo：
+            <audio controls>
+                <source src="scores/MQlDvnriRpb6du3HOfI9/穿越时空的思念-demo.mp3" type="audio/mpeg">   
+                Your browser does not support this audio format.
+            </audio>
+        </p>
+        <br />
+    </div>
+
+    <div id="Wrapper">
+        <br />
+        <div class="displayref1">
+            <div style="text-align:center">
+                <br />
+                印象国乐大曲改谱与注释：
+                <br />
+
+                <img src="scores/qaEgCij57YJVAz0uUeOG/吹管/印象国乐大曲-笛组改谱.jpg" alt="笛组改谱" width="750">
+                <img src="scores/qaEgCij57YJVAz0uUeOG/弦乐/弦乐改谱说明.jpg" alt="" width="750">
+                <img src="scores/qaEgCij57YJVAz0uUeOG/弦乐/192指法参考.jpg" alt="" width="750">
+            </div>
+        </div>
+        <div class="displayref2">
+            <div style="text-align:center">
+                <br />
+                瑶族舞曲改谱：
+                <img src="scores/itkXo4rCw0jmUd3nFVpb/总谱/瑶族舞曲改谱1.jpg" alt="瑶族舞曲改谱" width="750">
+                <img src="scores/itkXo4rCw0jmUd3nFVpb/总谱/瑶族舞曲改谱2.jpg" alt="瑶族舞曲改谱" width="750">
+                <img src="scores/itkXo4rCw0jmUd3nFVpb/总谱/瑶族舞曲改谱3.jpg" alt="瑶族舞曲改谱" width="750">
+            </div>
+        </div>
+    </div>
+
     <!-- this button starts the first test -->
 
 
-    <script language="javascript">
-        const cipherdict={
-            "印象国乐大曲": "qaEgCij57YJVAz0uUeOG",
-            "瑶族舞曲": "itkXo4rCw0jmUd3nFVpb",
-            "穿越时空的思念": "MQlDvnriRpb6du3HOfI9",
-            "花好月圆": "XLptxAE1Z45uohqHcQr9",
-            "台湾追想曲": "rsvgotidx7wDcHuJAbMF"
-        }
-        function DownloadFiles() {
-            var storage = window.sessionStorage;
-            if (storage.getItem("HasAccess") == "OK") {
-                var zip = new JSZip();
-                // prompt("Prepare zip");
-                var pieceselectlist = document.getElementsByName("pieces");
-                var pieceselect = "";
-                //alert(pieceselectlist);
-                for (var i = 0; i < pieceselectlist.length; i++) {
-                    // alert(pieceselectlist[i].checked);
-                    if (pieceselectlist[i].checked) {
-                        pieceselect = pieceselectlist[i].value; break;
-                    }
-                }
-                // alert(pieceselect);
-                var insselectlist = document.getElementsByName("ins");
-                var insselect = "";
-                for (var i = 0; i < insselectlist.length; i++) {
-                    if (insselectlist[i].checked) {
-                        insselect = insselectlist[i].value; break;
-                    }
-                }
-
-                alert(`下载 ${pieceselect}-${insselect}的所有分谱`);
-
-                window.location.href = "scores/"+cipherdict[pieceselect]+"/"+insselect+".zip";
-            } else {
-                alert("No Access. Please log in through the index page.")
-            }
-        }
-    </script>
+    
 
 </body>
 
