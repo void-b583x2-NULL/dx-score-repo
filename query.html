@@ -20,11 +20,6 @@
 
     <title>笛箫协会乐谱库</title>
 
-    <!-- load the test config file -->
-    <!-- <script src="config/example_config_mushra.js" type="text/javascript"></script> -->
-    <!-- -->
-
-
 
     <link type="text/css" href="css/smoothness/jquery-ui-1.8.18.custom.css" rel="Stylesheet" />
     <link type="text/css" href="css/styles.css" rel="Stylesheet" />
@@ -37,15 +32,13 @@
 </head>
 
 <body onload="Displayref1()">
-
-
     <div style="text-align:center">
         <br />
         <br />
         请选择需要查看的乐曲：
         <input type="radio" name="pieces" value="印象国乐大曲" checked="checked" onclick="Displayref1()">印象国乐大曲
         <input type="radio" name="pieces" value="瑶族舞曲" onclick="Displayref2()">瑶族舞曲
-        <input type="radio" name="pieces" value="穿越时空的思念" onclick="$('#Wrapper').hide()">穿越时空的思念
+        <input type="radio" name="pieces" value="穿越时空的思念" onclick="Displayref3()">穿越时空的思念
         <input type="radio" name="pieces" value="花好月圆" onclick="$('#Wrapper').hide()">花好月圆
         <input type="radio" name="pieces" value="台湾追想曲" onclick="$('#Wrapper').hide()">台湾追想曲
         <br />
@@ -88,7 +81,17 @@
         <div class="displayref1">
             <div style="text-align:center">
                 <br />
-                印象国乐大曲改谱与注释：
+                印象国乐大曲小节号提示：<br />
+                第一次转G调：34 <br />
+                速度146：51 （这里记为B段）<br />
+                速度74：136（这里记为C段）<br />
+                速度110：168（记为D段）<br />
+                速度112：208（E段）<br />
+
+                <br />主旋律谱：可参考<b>二胡声部</b>曲谱（下载弦乐分谱即可）<br />
+                <br />
+
+                改谱与注释：
                 <br />
 
                 <img src="scores/qaEgCij57YJVAz0uUeOG/吹管/印象国乐大曲-笛组改谱.jpg" alt="笛组改谱" width="750">
@@ -103,6 +106,12 @@
                 <img src="scores/itkXo4rCw0jmUd3nFVpb/总谱/瑶族舞曲改谱1.jpg" alt="瑶族舞曲改谱" width="750">
                 <img src="scores/itkXo4rCw0jmUd3nFVpb/总谱/瑶族舞曲改谱2.jpg" alt="瑶族舞曲改谱" width="750">
                 <img src="scores/itkXo4rCw0jmUd3nFVpb/总谱/瑶族舞曲改谱3.jpg" alt="瑶族舞曲改谱" width="750">
+            </div>
+        </div>
+        <div class="displayref3">
+            <div style="text-align:center">
+                <br />
+                统一删去最后4小节。
             </div>
         </div>
     </div>

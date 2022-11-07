@@ -5,7 +5,7 @@
 
 <head>
     <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
-
+    <script src="js/pagequery.js" type="text/javascript" ></script>
     <!--
         A template from below:
     BeaqleJS - HTML5 and JavaScript framework for listening tests, <https://github.com/HSU-ANT/beaqlejs>
@@ -51,23 +51,6 @@
 
     <!-- this button starts the first test -->
 
-
-    <script type="text/javascript">
-        function CheckInput() {
-
-            var RootAccount = "sjtudxer";
-            var RootPwd = "dy/dx=f\'(x)";
-            var acc = document.getElementById("acc").value;
-            var pwd = document.getElementById("pwd").value;
-            if (acc === RootAccount && pwd === RootPwd) {
-                var storage = window.sessionStorage;
-                storage.setItem("HasAccess", "OK");
-                window.location.href = "query.html";
-            } else {
-                alert("Authentication Fail");
-            }
-        }
-    </script>
 
 </body>
 
