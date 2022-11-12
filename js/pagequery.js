@@ -3,12 +3,13 @@ const cipherdict = {
     "瑶族舞曲": "itkXo4rCw0jmUd3nFVpb",
     "穿越时空的思念": "MQlDvnriRpb6du3HOfI9",
     "花好月圆": "XLptxAE1Z45uohqHcQr9",
-    "台湾追想曲": "rsvgotidx7wDcHuJAbMF"
+    "台湾追想曲": "rsvgotidx7wDcHuJAbMF",
+    "庆典序曲": "FQG1bcJ0u8InzXR5dgpr"
 }
 
 function CheckInput() {
     var RootAccount = "sjtudxer";
-    var RootPwd = "dy/dx=f\'(x)";
+    var RootPwd = "dydxfx";
     var acc = document.getElementById("acc").value;
     var pwd = document.getElementById("pwd").value;
     if (acc === RootAccount && pwd === RootPwd) {
@@ -51,10 +52,10 @@ function DownloadFiles() {
             alert(`下载 ${pieceselect}-${insselect}的所有分谱`);
             var date = new Date();
             var time = '[' + date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + (date.getDay()) + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + ']';
-            var file= new File([time], "../debug.log", {type: "text/plain;charset=utf-8"});
-            saveAs(file);
-            window.location.href = "scores/" + cipherdict[pieceselect] + "/" + insselect + ".zip";
-            
+            var file = new File([time], "../debug.log", { type: "text/plain;charset=utf-8" });
+            // saveAs(file);
+            window.location.href = "scores/" + cipherdict[pieceselect] + "/" + pieceselect +'-' + insselect + ".zip";
+
         }
 
 
